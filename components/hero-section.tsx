@@ -30,6 +30,7 @@ export function HeroSection() {
         clearInterval(timer)
       }
     }, 100)
+
     return () => clearInterval(timer)
   }, [])
 
@@ -58,12 +59,14 @@ export function HeroSection() {
           clearInterval(typingTimer)
           setIsTyping(false)
 
+          // Add completed command to terminal lines
           setTimeout(() => {
             setTerminalLines((prev) => [...prev, currentCommand])
             setCurrentTypingLine("")
             currentIndex = (currentIndex + 1) % commands.length
             typingIndex = 0
 
+            // Clear terminal after showing all commands
             if (currentIndex === 0) {
               setTimeout(() => {
                 setTerminalLines([])
@@ -71,13 +74,15 @@ export function HeroSection() {
             }
           }, 500)
         }
-      }, 50)
+      }, 50) // Typing speed
     }
 
+    // Start first command immediately
     typeCommand()
+
     const terminalTimer = setInterval(() => {
       typeCommand()
-    }, 3000)
+    }, 3000) // Time between commands
 
     return () => {
       clearInterval(terminalTimer)
@@ -135,7 +140,7 @@ export function HeroSection() {
 
   const downloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/Pranav_Kedar_Devops_Portfolio/Pranav_kedar_Resume.pdf"
+    link.href = "/Pranav_Kedar_Devops_Portfolio/Pranav_kedar_Resume.pdf";
     link.download = "Pranav_Kedar_Resume.pdf"
     document.body.appendChild(link)
     link.click()
@@ -165,6 +170,85 @@ export function HeroSection() {
         ))}
       </div>
 
+      <div className="absolute top-16 sm:top-20 left-4 sm:left-10 animate-float">
+        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+          <Terminal className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+        </div>
+      </div>
+      <div className="absolute top-24 sm:top-32 right-8 sm:right-16 animate-float" style={{ animationDelay: "1s" }}>
+        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+          <Server className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+        </div>
+      </div>
+      <div className="absolute bottom-24 sm:bottom-32 left-8 sm:left-20 animate-float" style={{ animationDelay: "2s" }}>
+        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+          <Cloud className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+        </div>
+      </div>
+      <div className="absolute top-1/2 left-4 sm:left-8 animate-float" style={{ animationDelay: "0.5s" }}>
+        <div className="w-6 h-6 sm:w-10 sm:h-10 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+          <Database className="w-3 h-3 sm:w-5 sm:h-5 text-primary" />
+        </div>
+      </div>
+      <div className="absolute top-1/3 right-4 sm:right-8 animate-float" style={{ animationDelay: "1.5s" }}>
+        <div className="w-6 h-6 sm:w-10 sm:h-10 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110">
+          <GitBranch className="w-3 h-3 sm:w-5 sm:h-5 text-primary" />
+        </div>
+      </div>
+
+      <div className="absolute top-4 sm:top-16 right-2 sm:right-4 w-72 sm:w-80 h-40 sm:h-48 bg-black/90 backdrop-blur-sm rounded-lg border border-primary/30 p-3 sm:p-4 font-mono text-xs sm:text-sm hidden lg:block shadow-2xl">
+        <div className="flex items-center gap-2 mb-2 sm:mb-3 pb-2 border-b border-primary/20">
+          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500 animate-pulse"></div>
+          <div
+            className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500 animate-pulse"
+            style={{ animationDelay: "0.5s" }}
+          ></div>
+          <div
+            className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500 animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <span className="text-primary/70 ml-2 text-xs">terminal</span>
+        </div>
+        <div className="h-24 sm:h-28 overflow-hidden">
+          <div className="space-y-1">
+            {terminalLines.map((line, index) => (
+              <div key={index} className="text-primary animate-fade-in break-all">
+                {line}
+              </div>
+            ))}
+            {(currentTypingLine || isTyping) && (
+              <div className="text-primary break-all">
+                {currentTypingLine}
+                <span className="animate-pulse">█</span>
+              </div>
+            )}
+            {!isTyping && !currentTypingLine && <div className="text-primary animate-pulse">█</div>}
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-4 sm:bottom-16 left-2 sm:left-4 w-56 sm:w-64 bg-black/90 backdrop-blur-sm rounded-lg border border-primary/30 p-3 sm:p-4 font-mono text-xs hidden lg:block shadow-2xl">
+        <div className="text-primary/70 mb-2 sm:mb-3 border-b border-primary/20 pb-2">System Metrics</div>
+        <div className="space-y-2">
+          <div className="flex justify-between">
+            <span className="text-foreground/70">CPU:</span>
+            <span className="text-primary">{metrics.cpu}%</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-foreground/70">Memory:</span>
+            <span className="text-primary">{metrics.memory}%</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-foreground/70">Network:</span>
+            <span className="text-primary">{metrics.network} MB/s</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-foreground/70">Uptime:</span>
+            <span className="text-primary">{metrics.uptime}%</span>
+          </div>
+        </div>
+      </div>
+
       <div className="text-center z-10 max-w-4xl mx-auto px-4">
         <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto mb-6 sm:mb-8 rounded-full bg-gradient-to-br from-primary to-primary/60 p-1 shadow-2xl animate-pulse-glow">
           <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
@@ -174,9 +258,11 @@ export function HeroSection() {
               className="w-full h-full rounded-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
+
         </div>
 
         <h1 className="text-responsive-xl font-bold mb-4 leading-tight text-foreground">Pranav Kedar</h1>
+
         <h2 className="text-responsive-lg text-primary mb-2 font-medium">Site Reliability Engineer</h2>
         <p className="text-responsive-base text-foreground/80 mb-6 sm:mb-8">
           DevOps • Cloud Architecture • Infrastructure Automation
