@@ -18,7 +18,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="text-foreground font-medium">Phone</p>
-                <p className="text-foreground/70">+91 7522905375</p>
+                <p className="text-foreground/70"> </p>
               </div>
             </div>
 
