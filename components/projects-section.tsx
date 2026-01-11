@@ -5,14 +5,23 @@ import { ExternalLink, Github, Plus } from "lucide-react"
 
 const projects = [
   {
-    title: "Secure 2-Tier Application Deployment on AWS",
-    description:
-      "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
-    technologies: ["AWS", "Terraform", "CloudWatch", "Bastion Host", "VPC", "Security Groups"],
-    image: "/Pranav_Kedar_Devops_Portfolio/awsArchitecture.jpg",
-    github: "https://github.com/pkedar2",
-    demo: "https://github.com/pkedar2",
-  },
+  title: "Secure 2-Tier Application Deployment on AWS",
+  description:
+    "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
+  technologies: [
+    "AWS",
+    "Terraform",
+    "CloudWatch",
+    "Bastion Host",
+    "VPC",
+    "Security Groups",
+  ],
+  image: "/awsArchitecture.jpg", 
+  github: "https://github.com/pkedar2",
+  demo: "https://github.com/pkedar2",
+  
+}
+
 ]
 
 export function ProjectsSection() {
