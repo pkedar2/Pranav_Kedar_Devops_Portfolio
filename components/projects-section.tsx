@@ -4,40 +4,38 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, Plus } from "lucide-react"
 
 const projects = [
-  {
-    title: "Deploying EKS Cluster using Terraform",
-    description:
-      "Automated the deployment of a scalable and secure EKS cluster on AWS using Terraform, incorporating best practices for networking, security, and resource management.",
-    technologies: [
-      "AWS",
-      "Terraform",
-      "CloudNative",
-      "EKS",
-      "VPC",
-      "S3",
-      "DynamoDB",
-    ],
-    image: "/Terraform_AWS.jpg",
-    github: "https://github.com/pkedar2/eks-cluster-using-terraform",
+{
+  title: "Deploying EKS Cluster using Terraform",
+  description:
+    "Automated the deployment of a scalable and secure EKS cluster on AWS using Terraform, incorporating best practices for networking, security, and resource management.",
+  technologies: [
+    "AWS",
+    "Terraform",
+    "CloudNative",
+    "EKS",
+    "VPC",
+    "S3",
+    "DynamoDB",
+  ],
+  image: "/Terraform_AWS.jpg",
+  github: "https://github.com/pkedar2/eks-cluster-using-terraform",
+},
+{
+  title: "Secure 2-Tier Application Deployment on AWS",
+  description:
+    "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
+  technologies: [
+    "AWS",
+    "Terraform",
+    "CloudWatch",
+    "Bastion Host",
+    "VPC",
+    "Security Groups",
+  ],
+  image: "/awsArchitecture.jpg",
+  github: "https://github.com/pkedar2",
+},
 
-  },
-  {
-    title: "Secure 2-Tier Application Deployment on AWS",
-    description:
-      "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
-    technologies: [
-      "AWS",
-      "Terraform",
-      "CloudWatch",
-      "Bastion Host",
-      "VPC",
-      "Security Groups",
-    ],
-    image: "/awsArchitecture.jpg",
-    github: "https://github.com/pkedar2",
-
-
-  },
 
 
 ]
