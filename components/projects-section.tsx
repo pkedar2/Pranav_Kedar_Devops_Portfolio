@@ -5,22 +5,40 @@ import { ExternalLink, Github, Plus } from "lucide-react"
 
 const projects = [
   {
-  title: "Secure 2-Tier Application Deployment on AWS",
-  description:
-    "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
-  technologies: [
-    "AWS",
-    "Terraform",
-    "CloudWatch",
-    "Bastion Host",
-    "VPC",
-    "Security Groups",
-  ],
-  image: "/awsArchitecture.jpg", 
-  github: "https://github.com/pkedar2",
-  demo: "https://github.com/pkedar2",
-  
-}
+    title: "Deploying EKS Cluster using Terraform",
+    description:
+      "Automated the deployment of a scalable and secure EKS cluster on AWS using Terraform, incorporating best practices for networking, security, and resource management.",
+    technologies: [
+      "AWS",
+      "Terraform",
+      "CloudNative",
+      "EKS",
+      "VPC",
+      "S3",
+      "DynamoDB",
+    ],
+    image: "/Terraform_AWS.jpg",
+    github: "https://github.com/pkedar2/eks-cluster-using-terraform",
+
+  },
+  {
+    title: "Secure 2-Tier Application Deployment on AWS",
+    description:
+      "Implemented a robust 2-tier AWS architecture featuring a Bastion Host for secure access, complete infrastructure automation using Terraform, and comprehensive monitoring with CloudWatch.",
+    technologies: [
+      "AWS",
+      "Terraform",
+      "CloudWatch",
+      "Bastion Host",
+      "VPC",
+      "Security Groups",
+    ],
+    image: "/awsArchitecture.jpg",
+    github: "https://github.com/pkedar2",
+
+
+  },
+
 
 ]
 
@@ -45,44 +63,65 @@ export function ProjectsSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
+
               <CardHeader>
-                <CardTitle className="text-lg text-primary">{project.title}</CardTitle>
+                <CardTitle className="text-lg text-primary">
+                  {project.title}
+                </CardTitle>
               </CardHeader>
+
               <CardContent className="space-y-4">
-                <p className="text-card-foreground text-sm leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-card-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 justify-center">
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline" className="border-secondary/30 text-secondary">
+                    <Badge
+                      key={tech}
+                      variant="outline"
+                      className="border-secondary/30 text-secondary"
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
-                <div className="flex gap-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button size="sm" variant="outline" className="w-full bg-transparent">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </Button>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button size="sm" className="w-full">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Button>
-                  </a>
+
+                {/* BUTTON AREA */}
+                <div className="flex justify-center">
+                  <div className="flex gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      {/* <Button size="sm" variant="outline" className="w-full bg-transparent">
+            <Github className="mr-2 h-4 w-4" />
+            Code
+          </Button> */}
+                    </a>
+
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex justify-center"
+                    >
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="bg-transparent px-6"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </CardContent>
             </Card>
+
           ))}
 
           {/* More Projects Coming Soon Card */}
