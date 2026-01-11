@@ -253,7 +253,7 @@ export function HeroSection() {
         <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 mx-auto mb-6 sm:mb-8 rounded-full bg-gradient-to-br from-primary to-primary/60 p-1 shadow-2xl animate-pulse-glow">
           <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
             <img
-              src="/Pranav_Kedar_Devops_Portfolio/pranav_profile.jpg"
+              src="/pranav_profile.jpg"
               alt="Pranav Kedar"
               className="w-full h-full rounded-full object-cover hover:scale-105 transition-transform duration-300"
             />
